@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 body {
-  @apply bg-brand-900 text-primary-500;
+  @apply bg-brand-900 text-zinc-200;
+  min-height: 150vh;
+  font-family: 'Poppins', sans-serif;
 }
