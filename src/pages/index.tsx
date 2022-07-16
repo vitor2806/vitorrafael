@@ -20,7 +20,7 @@ export default function Home() {
       <Contact />
       <footer className="py-4 flex justify-center items-center">
         <p className="text-sm text-zinc-400">
-          Feito com 💙 por{' '}
+          Feito com 💙 por
           <a className="font-bold text-primary-500" target={'_blank'} href="https://github.com/vitor2806">
             mim
           </a>
