@@ -5,6 +5,9 @@
 
 body {
   @apply bg-brand-900 text-zinc-200;
-  min-height: 150vh;
   font-family: 'Poppins', sans-serif;
+}
+
+.active {
+  @apply text-primary-500;
 }
