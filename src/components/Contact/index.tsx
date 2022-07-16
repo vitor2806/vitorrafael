@@ -37,8 +37,6 @@ export function Contact() {
 
     setIsSendingMessage(false);
 
-    console.log(isSendingMessage);
-
     setMessage('');
     setEmail('');
     setName('');

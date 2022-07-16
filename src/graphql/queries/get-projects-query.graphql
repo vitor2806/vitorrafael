@@ -1,0 +1,10 @@
+query getProjects {
+  projects {
+    cover {
+      url
+    }
+    name
+    projectDesription
+    url
+  }
+}
