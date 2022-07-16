@@ -8,7 +8,7 @@ export function About() {
   }, []);
 
   return (
-    <section id="about" className="mt-10 flex flex-col items-center justify-center gap-8" data-aos="fade-up">
+    <section id="about" className="my-36 flex flex-col items-center justify-center gap-8" data-aos="fade-up">
       <section className="flex w-[50%] items-center gap-16 leading-loose">
         <img src="https://avatars.githubusercontent.com/u/95248045?v=4" alt="Minha foto de perfil" className="rounded-full w-80 ring-2 ring-primary-500" />
         <article className="flex flex-col items-center gap-8">
