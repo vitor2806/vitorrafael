@@ -19,13 +19,13 @@ export function Hero() {
         </section>
         <section className="flex gap-2" data-aos="fade-up">
           <Link href="https://github.com/vitor2806">
-            <a target={'_blank'} className="flex text-lg items-center justify-center py-2 px-5 bg-primary-500 rounded text-brand-900 font-semibold hover:bg-primary-600 transition-colors">
+            <a target={'_blank'} rel="noreferrer" className="flex text-lg items-center justify-center py-2 px-5 bg-primary-500 rounded text-brand-900 font-semibold hover:bg-primary-600 transition-colors">
               <GithubLogo size={32} />
               GitHub
             </a>
           </Link>
           <Link href="https://linkedin.com/in/vitor2806">
-            <a target={'_blank'} className="flex text-lg gap-1 items-center justify-center py-2 px-4 bg-transparent border-2 border-primary-500 rounded text-primary-500 font-semibold hover:text-zinc-100 hover:border-zinc-100 transition-colors">
+            <a target={'_blank'} rel="noreferrer" className="flex text-lg gap-1 items-center justify-center py-2 px-4 bg-transparent border-2 border-primary-500 rounded text-primary-500 font-semibold hover:text-zinc-100 hover:border-zinc-100 transition-colors">
               <LinkedinLogo size={32} weight="duotone" />
               LinkedIn
             </a>
