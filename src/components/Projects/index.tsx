@@ -11,8 +11,6 @@ export function Projects() {
 
   const { data } = useGetProjectsQuery();
 
-  console.log(data);
-
   return (
     <section id="projects" className="flex flex-col items-center" data-aos="fade-right">
       <h1 className="my-16 text-5xl text-primary-500">Projetos</h1>
