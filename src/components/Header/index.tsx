@@ -21,7 +21,7 @@ export function Header() {
             </LinkScroll>
           </li>
           <li>
-            <LinkScroll to="contact" spy={true} smooth={true} offset={50} duration={500} className="hover:text-primary-500 cursor-pointer transition-colors">
+            <LinkScroll to="contact" spy={true} smooth={true} offset={-20} duration={500} className="hover:text-primary-500 cursor-pointer transition-colors">
               Contato
             </LinkScroll>
           </li>

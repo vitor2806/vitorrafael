@@ -9,7 +9,7 @@ export function About() {
 
   return (
     <section id="about" className="my-36 flex flex-col items-center justify-center" data-aos="fade-up">
-      <section className="flex flex-col lg:flex-row w-full px-10 lg:px-0 lg:w-[50%] items-center gap-16 leading-loose">
+      <section className="flex flex-col lg:flex-row w-full px-10 lg:px-0 lg:w-[75%] items-center gap-16 leading-loose">
         <img src="https://avatars.githubusercontent.com/u/95248045?v=4" alt="Minha foto de perfil" className="rounded-full w-64 lg:w-80 ring-2 ring-primary-500" />
         <article className="flex flex-col items-center gap-8">
           <h1 className="text-3xl lg:text-5xl text-primary-500">Sobre mim</h1>

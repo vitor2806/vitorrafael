@@ -33,7 +33,7 @@ export function Hero() {
         </section>
       </div>
       <div data-aos="fade-up">
-        <Image className="" src={'/Development-amico.svg'} width={700} height={700} />
+        <Image alt="Guy touching smartphone screen" src={'/Development-amico.svg'} width={600} height={600} />
       </div>
     </section>
   );
