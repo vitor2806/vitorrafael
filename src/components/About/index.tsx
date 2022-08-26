@@ -14,7 +14,7 @@ export function About() {
         <article className="flex flex-col items-center gap-8">
           <h1 className="text-3xl lg:text-5xl text-primary-500">Sobre mim</h1>
           <p className="text-justify">
-            Atualmente estou empenhando meus estudos em NextJS e suas possibilidades, bem como conhecendo GraphQL APIs. <strong className="text-primary-600">Estou em busca da minha primeira experiência profissional no mercado.</strong> Venho estudando JavaScript e seu ecossistema desde o final de 2021, onde através de plataformas como a Rocketseat pude aprofundar diversos conhecimentos. Venho realizando projetos pessoais e acadêmicos para aprimorar meus estudos. Me encontro ingressado no curso de Análise e Desenvolvimento de Sistemas pelo IFRN. Meu objetivo é se tornar um estimado desenvolvedor front-end.
+            Atualmente estou empenhando meus estudos em NextJS e suas possibilidades, bem como conhecendo GraphQL APIs. <strong className="text-primary-600">Estou em busca da minha primeira experiência profissional no mercado.</strong> Venho estudando JavaScript e seu ecossistema desde o final de 2021, onde através de plataformas como a Rocketseat pude aprofundar diversos conhecimentos. Venho realizando projetos pessoais e acadêmicos para aprimorar meus estudos. Me encontro ingressado no curso de Análise e Desenvolvimento de Sistemas pelo IFRN.
           </p>
         </article>
       </section>

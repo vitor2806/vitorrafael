@@ -7,7 +7,7 @@ import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary-500">
       <Head>
         <title>Vitor Rafael - Desenvolvedor Front-end</title>
         <meta name="description" content="Esse é o meu portfólio, onde há uma rápida descrição sobre mim e meus projetos." />
