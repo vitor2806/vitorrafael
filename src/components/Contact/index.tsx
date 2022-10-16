@@ -1,6 +1,7 @@
 import { CircleNotch, PaperPlaneRight } from 'phosphor-react';
 import { FormEvent, useState } from 'react';
 import classNames from 'classnames';
+import { SecTitle } from '../SecTitle/index';
 
 export function Contact() {
   const [isSendingMessage, setIsSendingMessage] = useState(false);
@@ -43,11 +44,20 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="flex flex-col gap-4 lg:gap-8 items-center justify-center py-10 mt-20 bg-brand-800">
-      <h1 className="text-primary-500 text-3xl lg:text-5xl">Fale comigo!</h1>
-      <form action="/api/mail" onSubmit={handleMessageSubmit} className="flex flex-col items-center gap-4 px-10 w-full lg:w-auto lg:px-0">
-        <span className={classNames('w-full text-zinc-200 rounded p-2 bg-opacity-70', { 'bg-primary-500': alertMessage.length > 0, 'bg-red-500': errorMessage.length > 0 })}>{alertMessage.length > 0 ? alertMessage : errorMessage.length > 0 ? errorMessage : ''}</span>
-        <section className="flex flex-col lg:flex-row w-full gap-4">
+    <section id="contact" className="flex flex-col items-center justify-center bg-brand-800">
+      <SecTitle content="Fale comigo" />
+      <form action="/api/mail" onSubmit={handleMessageSubmit} className="flex flex-col items-center gap-4">
+        <span
+          className={classNames('text-zinc-200 rounded p-2 bg-opacity-70', {
+            'bg-primary-500': alertMessage.length > 0,
+            visible: alertMessage.length > 0 || errorMessage.length > 0,
+            hidden: !alertMessage && !errorMessage,
+            'bg-red-500': errorMessage.length > 0,
+          })}
+        >
+          {alertMessage.length > 0 ? alertMessage : errorMessage.length > 0 ? errorMessage : ''}
+        </span>
+        <section className="flex flex-col lg:flex-row gap-4">
           <div className="flex flex-1 flex-col">
             <label htmlFor="email">Seu email</label>
             <input type="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="exemplo@gmail.com" name="email" id="email" className="rounded-md bg-secondary-500 py-2 px-4" required />

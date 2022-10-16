@@ -2,7 +2,7 @@ import { Link as LinkScroll } from 'react-scroll';
 
 export function Header() {
   return (
-    <header className="w-full  flex justify-center py-4 fixed top-0 bg-brand-900 z-10 border-b border-zinc-800">
+    <header className="w-full flex justify-center py-4 fixed top-0 bg-brand-900 z-10 border-b border-zinc-800">
       <nav className="">
         <ul className={`flex gap-4 uppercase font-medium text-zinc-400`}>
           <li>

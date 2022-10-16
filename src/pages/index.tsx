@@ -4,10 +4,11 @@ import { About } from '../components/About';
 import { Projects } from '../components/Projects';
 import { Contact } from '../components/Contact';
 import Head from 'next/head';
+import { Experiences } from '../components/Experiences';
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary-500">
+    <div className="relative flex flex-col gap-16">
       <Head>
         <title>Vitor Rafael - Desenvolvedor Front-end</title>
         <meta name="description" content="Esse é o meu portfólio, onde há uma rápida descrição sobre mim e meus projetos." />
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Experiences />
       <Projects />
       <Contact />
       <footer className="py-4 flex justify-center items-center">
