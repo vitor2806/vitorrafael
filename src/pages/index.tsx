@@ -8,18 +8,20 @@ import { Experiences } from '../components/Experiences';
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col gap-16">
-      <Head>
-        <title>Vitor Rafael - Desenvolvedor Front-end</title>
-        <meta name="description" content="Esse é o meu portfólio, onde há uma rápida descrição sobre mim e meus projetos." />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Header />
-      <Hero />
-      <About />
-      <Experiences />
-      <Projects />
-      <Contact />
+    <>
+      <div className="relative flex flex-col gap-16">
+        <Head>
+          <title>Vitor Rafael - Desenvolvedor Front-end</title>
+          <meta name="description" content="Esse é o meu portfólio, onde há uma rápida descrição sobre mim e meus projetos." />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
+        <Header />
+        <Hero />
+        <About />
+        <Experiences />
+        <Projects />
+        <Contact />
+      </div>
       <footer className="py-4 flex justify-center items-center">
         <p className="text-sm text-zinc-400">
           Feito com 💙 por {''}
@@ -28,6 +30,6 @@ export default function Home() {
           </a>
         </p>
       </footer>
-    </div>
+    </>
   );
 }
