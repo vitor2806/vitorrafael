@@ -1,7 +1,7 @@
 interface ExperienceContainerProps {
-  title: string;
-  date: string;
-  desc: string;
+  title: string | null | undefined;
+  date: string | null | undefined;
+  desc: string | null | undefined;
 }
 
 export function ExperienceContainer({ title, date, desc }: ExperienceContainerProps) {

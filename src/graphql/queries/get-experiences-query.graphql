@@ -1,0 +1,7 @@
+query getAllExperiences {
+  experiences {
+    date
+    desc
+    title
+  }
+}

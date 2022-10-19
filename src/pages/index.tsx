@@ -1,10 +1,11 @@
+import Head from 'next/head';
+
+import { About } from '../components/About';
+import { Contact } from '../components/Contact';
+import { Experiences } from '../components/Experiences';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
-import { About } from '../components/About';
 import { Projects } from '../components/Projects';
-import { Contact } from '../components/Contact';
-import Head from 'next/head';
-import { Experiences } from '../components/Experiences';
 
 export default function Home() {
   return (
