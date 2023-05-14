@@ -57,6 +57,7 @@ export function Hero() {
           <DownloadCV
             href='https://media.graphassets.com/FHBjUN3BSBOzpF39xgCr'
             download='Vitor Rafael.pdf'
+            target='_blank'
           >
             <Image
               src={'/assets/icons/DownloadSimple.svg'}
