@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
   justify-content: center;
 
   width: 100%;
+
+  background: #1e1d20;
 `;
 
 export const Title = styled(SectionTitle)`
@@ -26,7 +28,7 @@ export const ProjectsGrid = styled.div`
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 304px);
   }
 `;
 

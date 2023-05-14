@@ -10,12 +10,47 @@ export function Projects() {
           <span>#</span> Projetos
         </Title>
         <ProjectsGrid>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
+
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
+
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
+
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
+
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
+
+          <ProjectCard
+            image='https://media.graphassets.com/sfkScCC7RCeQrYT7FiMn'
+            title='PokéSearch'
+            description='Esse é um projeto que utilizei para conhecer os conceitos de páginação, infinite scroll, etc.'
+            href='https://pokesearch.vitorrafael.com.br/'
+          />
         </ProjectsGrid>
 
         <SeeMore

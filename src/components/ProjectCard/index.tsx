@@ -7,23 +7,32 @@ import {
   Wrapper,
 } from './styles';
 
-export function ProjectCard() {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+export function ProjectCard({
+  title,
+  description,
+  image,
+  href,
+}: ProjectCardProps) {
   return (
-    <Wrapper href='/'>
+    <Wrapper href={href}>
       <ImageContainer>
         <Image
-          src='/assets/Capa.png'
-          alt='Imagem'
+          src={image}
+          alt={`Imagem do projeto ${title}`}
           fill
           style={{ objectFit: 'cover' }}
         />
       </ImageContainer>
       <TextContainer>
-        <ProjectTitle>PokéSearch</ProjectTitle>
-        <ProjectDescription>
-          Esse é um projeto que utilizei para conhecer os conceitos de
-          paginação, infinite scroll, etc.
-        </ProjectDescription>
+        <ProjectTitle>{title}</ProjectTitle>
+        <ProjectDescription>{description}</ProjectDescription>
       </TextContainer>
     </Wrapper>
   );
