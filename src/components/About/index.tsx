@@ -45,7 +45,7 @@ export function About() {
             <Body>
               Atualmente, estou cursando Análise e Desenvolvimento de Sistemas
               no IFRN - Campus Pau dos Ferros e meu objetivo é ter o poder de
-              <strong>desenvolver soluções eficientes</strong> para problemas
+              <strong> desenvolver soluções eficientes</strong> para problemas
               atuais através do desenvolvimento de software.
             </Body>
           </section>

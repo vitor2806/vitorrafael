@@ -1,5 +1,5 @@
 query getProjects {
-  projects(orderBy: publishedAt_DESC) {
+  projects(orderBy: publishedAt_DESC, first: 6) {
     title
     url
     id

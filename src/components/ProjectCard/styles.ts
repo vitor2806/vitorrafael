@@ -44,6 +44,10 @@ export const ProjectTitle = styled.p`
 `;
 
 export const ProjectDescription = styled.span`
+  height: 64px;
+
+  overflow: hidden;
+
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

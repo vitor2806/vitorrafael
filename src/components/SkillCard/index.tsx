@@ -1,20 +1,33 @@
-import { ReactNode } from 'react';
-import { Description, TechInfo, TechName, Wrapper } from './styles';
+import Image from 'next/image';
+import { Description, TechIcon, TechInfo, TechName, Wrapper } from './styles';
 
 interface SkillCardProps {
   tech_name: string;
   description: string;
-  icon: ReactNode;
+  icon_url: string;
 }
 
-export function SkillCard({ tech_name, description, icon }: SkillCardProps) {
+export function SkillCard({
+  tech_name,
+  description,
+  icon_url,
+}: SkillCardProps) {
   return (
     <Wrapper>
       <TechInfo>
-        {icon}
+        <TechIcon>
+          <Image
+            src={icon_url}
+            alt={`Icone da tecnologia ${tech_name}`}
+            width={24}
+            height={24}
+            sizes='128px'
+            style={{ objectFit: 'cover' }}
+          />
+        </TechIcon>
         <TechName>{tech_name}</TechName>
       </TechInfo>
-      <Description>{description}</Description>
+      <Description title={description}>{description}</Description>
     </Wrapper>
   );
 }

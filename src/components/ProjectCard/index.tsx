@@ -33,7 +33,9 @@ export function ProjectCard({
       </ImageContainer>
       <TextContainer>
         <ProjectTitle>{title}</ProjectTitle>
-        <ProjectDescription>{description}</ProjectDescription>
+        <ProjectDescription title={description}>
+          {description}
+        </ProjectDescription>
       </TextContainer>
     </Wrapper>
   );

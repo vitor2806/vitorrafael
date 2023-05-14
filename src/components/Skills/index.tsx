@@ -1,9 +1,11 @@
+import { useGetSkillsQuery } from '@/graphql/generated';
 import { GlobalInnerContainer } from '@/styles/defaults';
-import { Atom } from '@phosphor-icons/react';
 import { SkillCard } from '../SkillCard';
 import { SkillsGrid, Title, Wrapper } from './styles';
 
 export function Skills() {
+  const { data } = useGetSkillsQuery();
+
   return (
     <Wrapper id='skills'>
       <GlobalInnerContainer $fillHeight={true}>
@@ -12,90 +14,16 @@ export function Skills() {
         </Title>
 
         <SkillsGrid>
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
-          <SkillCard
-            icon={<Atom size={32} color='white' />}
-            tech_name='React'
-            description='
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          '
-          />
+          {data?.skills.map(skill => {
+            return (
+              <SkillCard
+                key={skill.id}
+                tech_name={skill.tech_name || ''}
+                description={skill.description || ''}
+                icon_url={skill.icon_url || ''}
+              />
+            );
+          })}
         </SkillsGrid>
       </GlobalInnerContainer>
     </Wrapper>

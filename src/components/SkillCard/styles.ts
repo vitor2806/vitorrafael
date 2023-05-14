@@ -31,7 +31,26 @@ export const TechName = styled.span`
   color: #ffffff;
 `;
 
+export const TechIcon = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fff;
+  border-radius: 8px;
+
+  padding: 4px;
+
+  width: 24px;
+  height: 24px;
+`;
+
 export const Description = styled.span`
+  height: 72px;
+
+  overflow: hidden;
+
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
