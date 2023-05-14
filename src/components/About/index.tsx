@@ -1,4 +1,6 @@
+import { useGetProfilePicQuery } from '@/graphql/generated';
 import { GlobalInnerContainer } from '@/styles/defaults';
+import Image from 'next/image';
 import {
   Body,
   Description,
@@ -10,6 +12,8 @@ import {
 } from './styles';
 
 export function About() {
+  const { data } = useGetProfilePicQuery();
+
   return (
     <Wrapper id='about'>
       <GlobalInnerContainer $fillHeight={true}>
@@ -18,7 +22,14 @@ export function About() {
         </Title>
 
         <PersonalInfo>
-          <ImageContainer></ImageContainer>
+          <ImageContainer>
+            <Image
+              src={data?.profilePics[0].image?.url || ''}
+              alt='Foto de perfil'
+              fill
+              sizes='1000px'
+            />
+          </ImageContainer>
           <Subtitle>Opa, tudo bem?</Subtitle>
           <Description>
             Como já sabe, eu me chamo <strong>Vitor</strong>.

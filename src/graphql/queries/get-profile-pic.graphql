@@ -1,0 +1,8 @@
+query GetProfilePic {
+  profilePics(first: 1, orderBy: publishedAt_DESC) {
+    file_name
+    image {
+      url
+    }
+  }
+}

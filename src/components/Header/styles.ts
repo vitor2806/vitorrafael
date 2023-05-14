@@ -1,5 +1,6 @@
 import { GlobalInnerContainer } from '@/styles/defaults';
-import { Link } from 'react-scroll';
+import Link from 'next/link';
+import { Link as LinkScroll } from 'react-scroll';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -19,11 +20,11 @@ export const Container = styled(GlobalInnerContainer)`
   height: 100%;
 `;
 
-export const Logo = styled.div`
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border-radius: 8px;
+export const Logo = styled(Link)`
+  position: relative;
+
+  width: 48px;
+  height: 48px;
 `;
 
 export const Navigator = styled.nav`
@@ -32,7 +33,7 @@ export const Navigator = styled.nav`
   gap: 24px;
 `;
 
-export const StyledLink = styled(Link)<{ selected?: boolean }>`
+export const StyledLink = styled(LinkScroll)<{ selected?: boolean }>`
   text-decoration: none;
   font-family: 'Poppins';
   font-style: normal;

@@ -48,6 +48,7 @@ export type Asset = Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID'];
+  imageProfilePic: Array<ProfilePic>;
   /** System Locale field */
   locale: Locale;
   /** Get the other localizations for this document */
@@ -114,6 +115,20 @@ export type AssetHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+/** Asset system model */
+export type AssetImageProfilePicArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<ProfilePicOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ProfilePicWhereInput>;
 };
 
 
@@ -191,6 +206,7 @@ export type AssetCreateInput = {
   fileName: Scalars['String'];
   handle: Scalars['String'];
   height?: InputMaybe<Scalars['Float']>;
+  imageProfilePic?: InputMaybe<ProfilePicCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
   mimeType?: InputMaybe<Scalars['String']>;
@@ -295,6 +311,9 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  imageProfilePic_every?: InputMaybe<ProfilePicWhereInput>;
+  imageProfilePic_none?: InputMaybe<ProfilePicWhereInput>;
+  imageProfilePic_some?: InputMaybe<ProfilePicWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -368,6 +387,7 @@ export type AssetUpdateInput = {
   fileName?: InputMaybe<Scalars['String']>;
   handle?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Float']>;
+  imageProfilePic?: InputMaybe<ProfilePicUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
   mimeType?: InputMaybe<Scalars['String']>;
@@ -603,6 +623,9 @@ export type AssetWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  imageProfilePic_every?: InputMaybe<ProfilePicWhereInput>;
+  imageProfilePic_none?: InputMaybe<ProfilePicWhereInput>;
+  imageProfilePic_some?: InputMaybe<ProfilePicWhereInput>;
   mimeType?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   mimeType_contains?: InputMaybe<Scalars['String']>;
@@ -1382,6 +1405,8 @@ export type Mutation = {
   createAsset?: Maybe<Asset>;
   /** Create one experience */
   createExperience?: Maybe<Experience>;
+  /** Create one profilePic */
+  createProfilePic?: Maybe<ProfilePic>;
   /** Create one project */
   createProject?: Maybe<Project>;
   /** Create one scheduledRelease */
@@ -1407,6 +1432,13 @@ export type Mutation = {
   /** Delete many Experience documents, return deleted documents */
   deleteManyExperiencesConnection: ExperienceConnection;
   /**
+   * Delete many ProfilePic documents
+   * @deprecated Please use the new paginated many mutation (deleteManyProfilePicsConnection)
+   */
+  deleteManyProfilePics: BatchPayload;
+  /** Delete many ProfilePic documents, return deleted documents */
+  deleteManyProfilePicsConnection: ProfilePicConnection;
+  /**
    * Delete many Project documents
    * @deprecated Please use the new paginated many mutation (deleteManyProjectsConnection)
    */
@@ -1420,6 +1452,8 @@ export type Mutation = {
   deleteManySkills: BatchPayload;
   /** Delete many Skill documents, return deleted documents */
   deleteManySkillsConnection: SkillConnection;
+  /** Delete one profilePic from _all_ existing stages. Returns deleted document. */
+  deleteProfilePic?: Maybe<ProfilePic>;
   /** Delete one project from _all_ existing stages. Returns deleted document. */
   deleteProject?: Maybe<Project>;
   /** Delete and return scheduled operation */
@@ -1447,6 +1481,13 @@ export type Mutation = {
   /** Publish many Experience documents */
   publishManyExperiencesConnection: ExperienceConnection;
   /**
+   * Publish many ProfilePic documents
+   * @deprecated Please use the new paginated many mutation (publishManyProfilePicsConnection)
+   */
+  publishManyProfilePics: BatchPayload;
+  /** Publish many ProfilePic documents */
+  publishManyProfilePicsConnection: ProfilePicConnection;
+  /**
    * Publish many Project documents
    * @deprecated Please use the new paginated many mutation (publishManyProjectsConnection)
    */
@@ -1460,6 +1501,8 @@ export type Mutation = {
   publishManySkills: BatchPayload;
   /** Publish many Skill documents */
   publishManySkillsConnection: SkillConnection;
+  /** Publish one profilePic */
+  publishProfilePic?: Maybe<ProfilePic>;
   /** Publish one project */
   publishProject?: Maybe<Project>;
   /** Publish one skill */
@@ -1468,6 +1511,8 @@ export type Mutation = {
   schedulePublishAsset?: Maybe<Asset>;
   /** Schedule to publish one experience */
   schedulePublishExperience?: Maybe<Experience>;
+  /** Schedule to publish one profilePic */
+  schedulePublishProfilePic?: Maybe<ProfilePic>;
   /** Schedule to publish one project */
   schedulePublishProject?: Maybe<Project>;
   /** Schedule to publish one skill */
@@ -1476,6 +1521,8 @@ export type Mutation = {
   scheduleUnpublishAsset?: Maybe<Asset>;
   /** Unpublish one experience from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishExperience?: Maybe<Experience>;
+  /** Unpublish one profilePic from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishProfilePic?: Maybe<ProfilePic>;
   /** Unpublish one project from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishProject?: Maybe<Project>;
   /** Unpublish one skill from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1499,6 +1546,13 @@ export type Mutation = {
   /** Find many Experience documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyExperiencesConnection: ExperienceConnection;
   /**
+   * Unpublish many ProfilePic documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyProfilePicsConnection)
+   */
+  unpublishManyProfilePics: BatchPayload;
+  /** Find many ProfilePic documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyProfilePicsConnection: ProfilePicConnection;
+  /**
    * Unpublish many Project documents
    * @deprecated Please use the new paginated many mutation (unpublishManyProjectsConnection)
    */
@@ -1512,6 +1566,8 @@ export type Mutation = {
   unpublishManySkills: BatchPayload;
   /** Find many Skill documents that match criteria in specified stage and unpublish from target stages */
   unpublishManySkillsConnection: SkillConnection;
+  /** Unpublish one profilePic from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishProfilePic?: Maybe<ProfilePic>;
   /** Unpublish one project from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishProject?: Maybe<Project>;
   /** Unpublish one skill from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1535,6 +1591,13 @@ export type Mutation = {
   /** Update many Experience documents */
   updateManyExperiencesConnection: ExperienceConnection;
   /**
+   * Update many profilePics
+   * @deprecated Please use the new paginated many mutation (updateManyProfilePicsConnection)
+   */
+  updateManyProfilePics: BatchPayload;
+  /** Update many ProfilePic documents */
+  updateManyProfilePicsConnection: ProfilePicConnection;
+  /**
    * Update many projects
    * @deprecated Please use the new paginated many mutation (updateManyProjectsConnection)
    */
@@ -1548,6 +1611,8 @@ export type Mutation = {
   updateManySkills: BatchPayload;
   /** Update many Skill documents */
   updateManySkillsConnection: SkillConnection;
+  /** Update one profilePic */
+  updateProfilePic?: Maybe<ProfilePic>;
   /** Update one project */
   updateProject?: Maybe<Project>;
   /** Update one scheduledRelease */
@@ -1558,6 +1623,8 @@ export type Mutation = {
   upsertAsset?: Maybe<Asset>;
   /** Upsert one experience */
   upsertExperience?: Maybe<Experience>;
+  /** Upsert one profilePic */
+  upsertProfilePic?: Maybe<ProfilePic>;
   /** Upsert one project */
   upsertProject?: Maybe<Project>;
   /** Upsert one skill */
@@ -1572,6 +1639,11 @@ export type MutationCreateAssetArgs = {
 
 export type MutationCreateExperienceArgs = {
   data: ExperienceCreateInput;
+};
+
+
+export type MutationCreateProfilePicArgs = {
+  data: ProfilePicCreateInput;
 };
 
 
@@ -1630,6 +1702,21 @@ export type MutationDeleteManyExperiencesConnectionArgs = {
 };
 
 
+export type MutationDeleteManyProfilePicsArgs = {
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
+export type MutationDeleteManyProfilePicsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
 export type MutationDeleteManyProjectsArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
 };
@@ -1657,6 +1744,11 @@ export type MutationDeleteManySkillsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<SkillManyWhereInput>;
+};
+
+
+export type MutationDeleteProfilePicArgs = {
+  where: ProfilePicWhereUniqueInput;
 };
 
 
@@ -1737,6 +1829,24 @@ export type MutationPublishManyExperiencesConnectionArgs = {
 };
 
 
+export type MutationPublishManyProfilePicsArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
+export type MutationPublishManyProfilePicsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
 export type MutationPublishManyProjectsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<ProjectManyWhereInput>;
@@ -1773,6 +1883,12 @@ export type MutationPublishManySkillsConnectionArgs = {
 };
 
 
+export type MutationPublishProfilePicArgs = {
+  to?: Array<Stage>;
+  where: ProfilePicWhereUniqueInput;
+};
+
+
 export type MutationPublishProjectArgs = {
   to?: Array<Stage>;
   where: ProjectWhereUniqueInput;
@@ -1801,6 +1917,14 @@ export type MutationSchedulePublishExperienceArgs = {
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: ExperienceWhereUniqueInput;
+};
+
+
+export type MutationSchedulePublishProfilePicArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  to?: Array<Stage>;
+  where: ProfilePicWhereUniqueInput;
 };
 
 
@@ -1835,6 +1959,14 @@ export type MutationScheduleUnpublishExperienceArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: ExperienceWhereUniqueInput;
+};
+
+
+export type MutationScheduleUnpublishProfilePicArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  where: ProfilePicWhereUniqueInput;
 };
 
 
@@ -1908,6 +2040,24 @@ export type MutationUnpublishManyExperiencesConnectionArgs = {
 };
 
 
+export type MutationUnpublishManyProfilePicsArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyProfilePicsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
 export type MutationUnpublishManyProjectsArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<ProjectManyWhereInput>;
@@ -1941,6 +2091,12 @@ export type MutationUnpublishManySkillsConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   stage?: InputMaybe<Stage>;
   where?: InputMaybe<SkillManyWhereInput>;
+};
+
+
+export type MutationUnpublishProfilePicArgs = {
+  from?: Array<Stage>;
+  where: ProfilePicWhereUniqueInput;
 };
 
 
@@ -2002,6 +2158,23 @@ export type MutationUpdateManyExperiencesConnectionArgs = {
 };
 
 
+export type MutationUpdateManyProfilePicsArgs = {
+  data: ProfilePicUpdateManyInput;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
+export type MutationUpdateManyProfilePicsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  data: ProfilePicUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ProfilePicManyWhereInput>;
+};
+
+
 export type MutationUpdateManyProjectsArgs = {
   data: ProjectUpdateManyInput;
   where?: InputMaybe<ProjectManyWhereInput>;
@@ -2036,6 +2209,12 @@ export type MutationUpdateManySkillsConnectionArgs = {
 };
 
 
+export type MutationUpdateProfilePicArgs = {
+  data: ProfilePicUpdateInput;
+  where: ProfilePicWhereUniqueInput;
+};
+
+
 export type MutationUpdateProjectArgs = {
   data: ProjectUpdateInput;
   where: ProjectWhereUniqueInput;
@@ -2063,6 +2242,12 @@ export type MutationUpsertAssetArgs = {
 export type MutationUpsertExperienceArgs = {
   upsert: ExperienceUpsertInput;
   where: ExperienceWhereUniqueInput;
+};
+
+
+export type MutationUpsertProfilePicArgs = {
+  upsert: ProfilePicUpsertInput;
+  where: ProfilePicWhereUniqueInput;
 };
 
 
@@ -2098,6 +2283,447 @@ export type PageInfo = {
   pageSize?: Maybe<Scalars['Int']>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
+};
+
+export type ProfilePic = Node & {
+  __typename?: 'ProfilePic';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<ProfilePic>;
+  file_name?: Maybe<Scalars['String']>;
+  /** List of ProfilePic versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  image?: Maybe<Asset>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type ProfilePicCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type ProfilePicDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+  stages?: Array<Stage>;
+};
+
+
+export type ProfilePicHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type ProfilePicImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type ProfilePicPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type ProfilePicScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type ProfilePicUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type ProfilePicConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: ProfilePicWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type ProfilePicConnection = {
+  __typename?: 'ProfilePicConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<ProfilePicEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type ProfilePicCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  file_name?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<AssetCreateOneInlineInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type ProfilePicCreateManyInlineInput = {
+  /** Connect multiple existing ProfilePic documents */
+  connect?: InputMaybe<Array<ProfilePicWhereUniqueInput>>;
+  /** Create and connect multiple existing ProfilePic documents */
+  create?: InputMaybe<Array<ProfilePicCreateInput>>;
+};
+
+export type ProfilePicCreateOneInlineInput = {
+  /** Connect one existing ProfilePic document */
+  connect?: InputMaybe<ProfilePicWhereUniqueInput>;
+  /** Create and connect one ProfilePic document */
+  create?: InputMaybe<ProfilePicCreateInput>;
+};
+
+/** An edge in a connection. */
+export type ProfilePicEdge = {
+  __typename?: 'ProfilePicEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node: ProfilePic;
+};
+
+/** Identifies documents */
+export type ProfilePicManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<ProfilePicWhereStageInput>;
+  documentInStages_none?: InputMaybe<ProfilePicWhereStageInput>;
+  documentInStages_some?: InputMaybe<ProfilePicWhereStageInput>;
+  file_name?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  file_name_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  file_name_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  file_name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  file_name_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  file_name_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  file_name_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  file_name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  file_name_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  file_name_starts_with?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<AssetWhereInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum ProfilePicOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  FileNameAsc = 'file_name_ASC',
+  FileNameDesc = 'file_name_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type ProfilePicUpdateInput = {
+  file_name?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<AssetUpdateOneInlineInput>;
+};
+
+export type ProfilePicUpdateManyInlineInput = {
+  /** Connect multiple existing ProfilePic documents */
+  connect?: InputMaybe<Array<ProfilePicConnectInput>>;
+  /** Create and connect multiple ProfilePic documents */
+  create?: InputMaybe<Array<ProfilePicCreateInput>>;
+  /** Delete multiple ProfilePic documents */
+  delete?: InputMaybe<Array<ProfilePicWhereUniqueInput>>;
+  /** Disconnect multiple ProfilePic documents */
+  disconnect?: InputMaybe<Array<ProfilePicWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing ProfilePic documents */
+  set?: InputMaybe<Array<ProfilePicWhereUniqueInput>>;
+  /** Update multiple ProfilePic documents */
+  update?: InputMaybe<Array<ProfilePicUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple ProfilePic documents */
+  upsert?: InputMaybe<Array<ProfilePicUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type ProfilePicUpdateManyInput = {
+  file_name?: InputMaybe<Scalars['String']>;
+};
+
+export type ProfilePicUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: ProfilePicUpdateManyInput;
+  /** Document search */
+  where: ProfilePicWhereInput;
+};
+
+export type ProfilePicUpdateOneInlineInput = {
+  /** Connect existing ProfilePic document */
+  connect?: InputMaybe<ProfilePicWhereUniqueInput>;
+  /** Create and connect one ProfilePic document */
+  create?: InputMaybe<ProfilePicCreateInput>;
+  /** Delete currently connected ProfilePic document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected ProfilePic document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single ProfilePic document */
+  update?: InputMaybe<ProfilePicUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single ProfilePic document */
+  upsert?: InputMaybe<ProfilePicUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ProfilePicUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: ProfilePicUpdateInput;
+  /** Unique document search */
+  where: ProfilePicWhereUniqueInput;
+};
+
+export type ProfilePicUpsertInput = {
+  /** Create document if it didn't exist */
+  create: ProfilePicCreateInput;
+  /** Update document if it exists */
+  update: ProfilePicUpdateInput;
+};
+
+export type ProfilePicUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: ProfilePicUpsertInput;
+  /** Unique document search */
+  where: ProfilePicWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type ProfilePicWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Identifies documents */
+export type ProfilePicWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ProfilePicWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<ProfilePicWhereStageInput>;
+  documentInStages_none?: InputMaybe<ProfilePicWhereStageInput>;
+  documentInStages_some?: InputMaybe<ProfilePicWhereStageInput>;
+  file_name?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  file_name_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  file_name_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  file_name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  file_name_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  file_name_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  file_name_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  file_name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  file_name_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  file_name_starts_with?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<AssetWhereInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type ProfilePicWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ProfilePicWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ProfilePicWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ProfilePicWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<ProfilePicWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References ProfilePic record uniquely */
+export type ProfilePicWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 export type Project = Node & {
@@ -2656,6 +3282,14 @@ export type Query = {
   experiencesConnection: ExperienceConnection;
   /** Fetches an object given its ID */
   node?: Maybe<Node>;
+  /** Retrieve a single profilePic */
+  profilePic?: Maybe<ProfilePic>;
+  /** Retrieve document version */
+  profilePicVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple profilePics */
+  profilePics: Array<ProfilePic>;
+  /** Retrieve multiple profilePics using the Relay connection interface */
+  profilePicsConnection: ProfilePicConnection;
   /** Retrieve a single project */
   project?: Maybe<Project>;
   /** Retrieve document version */
@@ -2773,6 +3407,44 @@ export type QueryNodeArgs = {
   id: Scalars['ID'];
   locales?: Array<Locale>;
   stage?: Stage;
+};
+
+
+export type QueryProfilePicArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: ProfilePicWhereUniqueInput;
+};
+
+
+export type QueryProfilePicVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryProfilePicsArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<ProfilePicOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<ProfilePicWhereInput>;
+};
+
+
+export type QueryProfilePicsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<ProfilePicOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<ProfilePicWhereInput>;
 };
 
 
@@ -3062,7 +3734,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | Experience | Project | Skill;
+export type ScheduledOperationAffectedDocument = Asset | Experience | ProfilePic | Project | Skill;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -5030,6 +5702,11 @@ export type GetAllExperiencesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetAllExperiencesQuery = { __typename?: 'Query', experiences: Array<{ __typename?: 'Experience', date?: string | null, desc?: string | null, title?: string | null }> };
 
+export type GetProfilePicQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProfilePicQuery = { __typename?: 'Query', profilePics: Array<{ __typename?: 'ProfilePic', file_name?: string | null, image?: { __typename?: 'Asset', url: string } | null }> };
+
 export type GetProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5077,6 +5754,43 @@ export function useGetAllExperiencesLazyQuery(baseOptions?: Apollo.LazyQueryHook
 export type GetAllExperiencesQueryHookResult = ReturnType<typeof useGetAllExperiencesQuery>;
 export type GetAllExperiencesLazyQueryHookResult = ReturnType<typeof useGetAllExperiencesLazyQuery>;
 export type GetAllExperiencesQueryResult = Apollo.QueryResult<GetAllExperiencesQuery, GetAllExperiencesQueryVariables>;
+export const GetProfilePicDocument = gql`
+    query GetProfilePic {
+  profilePics(first: 1, orderBy: publishedAt_DESC) {
+    file_name
+    image {
+      url
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetProfilePicQuery__
+ *
+ * To run a query within a React component, call `useGetProfilePicQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProfilePicQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProfilePicQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetProfilePicQuery(baseOptions?: Apollo.QueryHookOptions<GetProfilePicQuery, GetProfilePicQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProfilePicQuery, GetProfilePicQueryVariables>(GetProfilePicDocument, options);
+      }
+export function useGetProfilePicLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProfilePicQuery, GetProfilePicQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProfilePicQuery, GetProfilePicQueryVariables>(GetProfilePicDocument, options);
+        }
+export type GetProfilePicQueryHookResult = ReturnType<typeof useGetProfilePicQuery>;
+export type GetProfilePicLazyQueryHookResult = ReturnType<typeof useGetProfilePicLazyQuery>;
+export type GetProfilePicQueryResult = Apollo.QueryResult<GetProfilePicQuery, GetProfilePicQueryVariables>;
 export const GetProjectsDocument = gql`
     query getProjects {
   projects(orderBy: publishedAt_DESC, first: 6) {

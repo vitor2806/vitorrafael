@@ -1,10 +1,13 @@
+import Image from 'next/image';
 import { Container, Logo, Navigator, StyledLink, Wrapper } from './styles';
 
 export function Header() {
   return (
     <Wrapper>
       <Container>
-        <Logo></Logo>
+        <Logo href='/'>
+          <Image src='/Logo.svg' alt='Logo' fill />
+        </Logo>
         <Navigator>
           <StyledLink smooth={true} to='about'>
             Sobre

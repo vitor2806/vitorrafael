@@ -28,8 +28,10 @@ export const PersonalInfo = styled.section`
 
 export const ImageContainer = styled.div`
   position: relative;
-  width: 465px;
+  width: 328px;
   height: 328px;
+
+  overflow: hidden;
 
   background: #ffffff;
   border-radius: 16px;
