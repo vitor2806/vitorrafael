@@ -1,5 +1,5 @@
 query getSkills {
-  skills {
+  skills(first: 12) {
     id
     tech_name
     description

@@ -5119,7 +5119,7 @@ export type GetProjectsLazyQueryHookResult = ReturnType<typeof useGetProjectsLaz
 export type GetProjectsQueryResult = Apollo.QueryResult<GetProjectsQuery, GetProjectsQueryVariables>;
 export const GetSkillsDocument = gql`
     query getSkills {
-  skills {
+  skills(first: 12) {
     id
     tech_name
     description
