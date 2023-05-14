@@ -34,8 +34,6 @@
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@types/react-scroll": "^1.8.7",
     "@types/styled-components": "^5.1.26",
-    "babel-plugin-styled-components": "^2.1.1",
-    "babel-preset-next": "^1.4.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.1.3"
