@@ -1,11 +1,15 @@
+import { client } from '@/lib/apollo';
 import Reset from '@/styles/reset';
+import { ApolloProvider } from '@apollo/client';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Reset />
-      <Component {...pageProps} />
+      <ApolloProvider client={client}>
+        <Reset />
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   );
 }

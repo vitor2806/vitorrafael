@@ -28,6 +28,7 @@ export function ProjectCard({
           alt={`Imagem do projeto ${title}`}
           fill
           style={{ objectFit: 'cover' }}
+          sizes='500px'
         />
       </ImageContainer>
       <TextContainer>

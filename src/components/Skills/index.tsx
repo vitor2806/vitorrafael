@@ -6,7 +6,7 @@ import { SkillsGrid, Title, Wrapper } from './styles';
 export function Skills() {
   return (
     <Wrapper id='skills'>
-      <GlobalInnerContainer fillHeight={true}>
+      <GlobalInnerContainer $fillHeight={true}>
         <Title>
           <span>#</span> Habilidades
         </Title>

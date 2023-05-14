@@ -22,20 +22,20 @@ export const GlobalWrapper = styled.div`
 `;
 
 export const GlobalInnerContainer = styled.div<{
-  centralized?: boolean;
-  fillHeight?: boolean;
+  $centralized?: boolean;
+  $fillHeight?: boolean;
 }>`
   display: flex;
   flex-flow: column;
   width: 100%;
   max-width: 1040px;
 
-  ${({ centralized }) =>
-    centralized
+  ${({ $centralized }) =>
+    $centralized
       ? `justify-content: center;
     align-items: center;
   `
       : ''}
 
-  ${({ fillHeight }) => (fillHeight ? 'height: 100vh;' : '')}
+  ${({ $fillHeight }) => ($fillHeight ? 'height: 100vh;' : '')}
 `;

@@ -12,7 +12,7 @@ import {
 export function About() {
   return (
     <Wrapper id='about'>
-      <GlobalInnerContainer fillHeight={true}>
+      <GlobalInnerContainer $fillHeight={true}>
         <Title>
           <span>#</span> Sobre
         </Title>

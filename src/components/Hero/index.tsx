@@ -12,7 +12,7 @@ import {
 export function Hero() {
   return (
     <Wrapper id='hero'>
-      <Container fillHeight={true} centralized={true}>
+      <Container $fillHeight={true} $centralized={true}>
         <HeroBigText>
           Olá! Eu sou <strong>Vitor</strong>.
         </HeroBigText>

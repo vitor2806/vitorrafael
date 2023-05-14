@@ -1,0 +1,11 @@
+query getProjects {
+  projects(orderBy: publishedAt_DESC) {
+    title
+    url
+    id
+    description
+    cover {
+      url
+    }
+  }
+}
