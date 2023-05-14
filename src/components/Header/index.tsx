@@ -15,9 +15,9 @@ export function Header() {
           <StyledLink smooth={true} to='skills'>
             Habilidades
           </StyledLink>
-          <StyledLink smooth={true} to='experiences'>
+          {/* <StyledLink smooth={true} to='experiences'>
             Experiências
-          </StyledLink>
+          </StyledLink> */}
         </Navigator>
       </Container>
     </Wrapper>
