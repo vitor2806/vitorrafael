@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SectionTitle = styled.h2`
   margin-top: 16px;
+  margin-bottom: 40px;
 
   font-family: 'Poppins';
   font-style: normal;

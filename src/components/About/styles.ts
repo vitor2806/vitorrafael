@@ -24,8 +24,6 @@ export const PersonalInfo = styled.section`
   justify-content: center;
 
   gap: 16px;
-
-  margin-top: 40px;
 `;
 
 export const ImageContainer = styled.div`
