@@ -6,7 +6,7 @@ import { ProjectsGrid, SeeMore, Title, Wrapper } from './styles';
 export function Projects() {
   const { data } = useGetProjectsQuery();
 
-  console.log(data?.projects[0]);
+  data?.projects[0];
 
   return (
     <Wrapper id='projects'>

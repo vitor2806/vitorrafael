@@ -6,6 +6,7 @@ const nextConfig = {
       'media.graphassets.com',
       'user-images.githubusercontent.com',
       'static-00.iconduck.com',
+      'raw.githubusercontent.com',
     ],
   },
 };
