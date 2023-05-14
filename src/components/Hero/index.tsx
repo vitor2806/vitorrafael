@@ -54,7 +54,10 @@ export function Hero() {
             />
           </Link>
 
-          <DownloadCV>
+          <DownloadCV
+            href='https://media.graphassets.com/FHBjUN3BSBOzpF39xgCr'
+            download='Vitor Rafael.pdf'
+          >
             <Image
               src={'/assets/icons/DownloadSimple.svg'}
               height={20}

@@ -1,4 +1,5 @@
 import { GlobalInnerContainer } from '@/styles/defaults';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -45,7 +46,7 @@ export const ContactContainer = styled.div`
   margin-top: 16px;
 `;
 
-export const DownloadCV = styled.a`
+export const DownloadCV = styled(Link)`
   display: flex;
   flex-direction: row;
   justify-content: center;
