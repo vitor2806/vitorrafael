@@ -1,5 +1,5 @@
 import { GlobalInnerContainer } from '@/styles/defaults';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -41,6 +41,7 @@ export const StyledLink = styled(Link)<{ selected?: boolean }>`
   line-height: 24px;
   text-align: center;
   letter-spacing: 1.25px;
+  cursor: pointer;
 
   color: rgba(255, 255, 255, 0.6);
 

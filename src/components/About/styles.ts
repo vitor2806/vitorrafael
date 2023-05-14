@@ -1,3 +1,4 @@
+import { SectionTitle } from '@/styles/defaults';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -10,18 +11,7 @@ export const Wrapper = styled.div`
   background: #845cd6;
 `;
 
-export const SectionTitle = styled.h2`
-  margin-top: 16px;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 58px;
-  line-height: 87px;
-  letter-spacing: -0.5px;
-
-  color: #ffffff;
-
+export const Title = styled(SectionTitle)`
   > span {
     color: #453663;
   }

@@ -4,18 +4,18 @@ import {
   Description,
   ImageContainer,
   PersonalInfo,
-  SectionTitle,
   Subtitle,
+  Title,
   Wrapper,
 } from './styles';
 
 export function About() {
   return (
-    <Wrapper>
+    <Wrapper id='about'>
       <GlobalInnerContainer fillHeight={true}>
-        <SectionTitle>
+        <Title>
           <span>#</span> Sobre
-        </SectionTitle>
+        </Title>
 
         <PersonalInfo>
           <ImageContainer></ImageContainer>

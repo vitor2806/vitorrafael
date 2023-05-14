@@ -11,7 +11,7 @@ import {
 
 export function Hero() {
   return (
-    <Wrapper>
+    <Wrapper id='hero'>
       <Container fillHeight={true} centralized={true}>
         <HeroBigText>
           Olá! Eu sou <strong>Vitor</strong>.
