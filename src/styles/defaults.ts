@@ -37,5 +37,5 @@ export const GlobalInnerContainer = styled.div<{
   `
       : ''}
 
-  ${({ $fillHeight }) => ($fillHeight ? 'height: 100vh;' : '')}
+  ${({ $fillHeight }) => ($fillHeight ? 'min-height: 100vh;' : '')}
 `;
