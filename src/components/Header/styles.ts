@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: #1e1d20;
+  background-color: ${({ theme }) => theme.colors.gray700};
   height: 72px;
   width: 100%;
 `;
@@ -44,7 +44,7 @@ export const StyledLink = styled(LinkScroll)<{ selected?: boolean }>`
   letter-spacing: 1.25px;
   cursor: pointer;
 
-  color: rgba(255, 255, 255, 0.6);
+  color: ${({ theme }) => theme.colors.white};
 
   &:hover {
     color: #fff;
@@ -53,7 +53,7 @@ export const StyledLink = styled(LinkScroll)<{ selected?: boolean }>`
   ${({ selected }) =>
     selected &&
     `
-    color: #845CD6;
-    border-bottom: 2px solid #845CD6;
+    color: ${({ theme }) => theme.colors.purple500};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.purple500};
   `}
 `;

@@ -4,13 +4,13 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #19181b;
+  background-color: ${({ theme }) => theme.colors.gray800};
 
   width: 100%;
 `;
 
 export const Title = styled(SectionTitle)`
-  color: #845cd6;
+  color: ${({ theme }) => theme.colors.purple500};
 
   > span {
     color: #fff;

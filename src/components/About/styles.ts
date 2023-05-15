@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
 
   width: 100%;
 
-  background: #845cd6;
+  background: ${({ theme }) => theme.colors.purple500};
 `;
 
 export const Title = styled(SectionTitle)`
   > span {
-    color: #453663;
+    color: ${({ theme }) => theme.colors.purple700};
   }
 `;
 
@@ -33,7 +33,7 @@ export const ImageContainer = styled.div`
 
   overflow: hidden;
 
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.white};
   border-radius: 16px;
 `;
 
@@ -44,7 +44,7 @@ export const Subtitle = styled.h3`
   font-size: 39px;
   line-height: 58px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Description = styled.h5`
@@ -57,10 +57,10 @@ export const Description = styled.h5`
 
   letter-spacing: 0.25px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   > strong {
-    color: #ffb546;
+    color: ${({ theme }) => theme.colors.orange500};
   }
 `;
 
@@ -76,9 +76,9 @@ export const Body = styled.p`
   letter-spacing: 0.15px;
   text-indent: 48px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   > strong {
-    color: #ffb546;
+    color: ${({ theme }) => theme.colors.orange500};
   }
 `;

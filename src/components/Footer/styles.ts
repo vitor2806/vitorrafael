@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   width: 100%;
   height: 60px;
-  background-color: #1e1d20;
+  background-color: ${({ theme }) => theme.colors.gray700};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +25,10 @@ export const Text = styled.span`
 
   letter-spacing: 0.5px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   > a {
     text-decoration: none;
-    color: #845cd6;
+    color: ${({ theme }) => theme.colors.purple500};
   }
 `;

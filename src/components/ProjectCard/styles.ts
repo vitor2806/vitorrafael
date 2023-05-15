@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Wrapper = styled(Link)`
   width: 100%;
   height: 100%;
-  background: #333036;
+  background: ${({ theme }) => theme.colors.gray600};
   border-radius: 8px;
   overflow: hidden;
   transition: background 0.2s ease-in-out;
@@ -40,7 +40,7 @@ export const ProjectTitle = styled.p`
 
   letter-spacing: 0.5px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ProjectDescription = styled.span`
@@ -55,5 +55,5 @@ export const ProjectDescription = styled.span`
   line-height: 21px;
   letter-spacing: 0.25px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;

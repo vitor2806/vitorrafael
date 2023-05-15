@@ -20,7 +20,7 @@ export const HeroBigText = styled.h1`
 
   letter-spacing: -1.5px;
 
-  color: #845cd6;
+  color: ${({ theme }) => theme.colors.purple500};
 
   > strong {
     font-weight: 700;
@@ -34,7 +34,7 @@ export const HeroSubtitle = styled.h3`
   font-weight: 500;
   font-size: 39px;
   line-height: 58px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ContactContainer = styled.div`
@@ -57,7 +57,7 @@ export const DownloadCV = styled(Link)`
   width: 150px;
   height: 40px;
 
-  border: 2px solid #845cd6;
+  border: 2px solid ${({ theme }) => theme.colors.purple500};
   border-radius: 6px;
 
   font-family: 'Poppins';
@@ -69,5 +69,5 @@ export const DownloadCV = styled(Link)`
 
   letter-spacing: 0.25px;
 
-  color: #845cd6;
+  color: ${({ theme }) => theme.colors.purple500};
 `;

@@ -11,7 +11,7 @@ export const SectionTitle = styled.h2`
   line-height: 87px;
   letter-spacing: -0.5px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const GlobalWrapper = styled.div`

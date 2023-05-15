@@ -6,7 +6,7 @@ export function Header() {
     <Wrapper>
       <Container>
         <Logo href='/'>
-          <Image src='/Logo.svg' alt='Logo' fill />
+          <Image src='/favicon.svg' alt='Logo' fill />
         </Logo>
         <Navigator>
           <StyledLink smooth={true} to='about'>

@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
 
   width: 100%;
 
-  background: #1e1d20;
+  background: ${({ theme }) => theme.colors.gray700};
 `;
 
 export const Title = styled(SectionTitle)`
-  color: #845cd6;
+  color: ${({ theme }) => theme.colors.purple500};
 
   > span {
     color: #fff;
@@ -44,7 +44,7 @@ export const SeeMore = styled(Link)`
   align-items: center;
   justify-content: center;
 
-  background: #845cd6;
+  background: ${({ theme }) => theme.colors.purple500};
   border-radius: 6px;
 
   font-family: 'Poppins';
@@ -56,5 +56,5 @@ export const SeeMore = styled(Link)`
 
   letter-spacing: 1.25px;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
