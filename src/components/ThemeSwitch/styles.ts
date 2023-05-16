@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 
+  border: none;
+  background-color: transparent;
+
+  line-height: 0;
+  padding: 4px;
+  border-radius: 8px;
+
+  border: ${({ theme }) => theme.colors.purple200} 2px solid;
+  color: ${({ theme }) => theme.colors.purple200};
+
+  cursor: pointer;
 `;

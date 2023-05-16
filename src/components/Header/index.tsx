@@ -1,12 +1,22 @@
 import Image from 'next/image';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Container, Logo, Navigator, StyledLink, Wrapper } from './styles';
 
 export function Header() {
+  const themeContext = useContext(ThemeContext);
+
+  console.log(themeContext);
+
   return (
     <Wrapper>
       <Container>
         <Logo href='/'>
-          <Image src='/favicon.svg' alt='Logo' fill />
+          {themeContext?.title === 'light' ? (
+            <Image src='/logo_light.svg' alt='Logo' fill />
+          ) : (
+            <Image src='/logo_dark.svg' alt='Logo' fill />
+          )}
         </Logo>
         <Navigator>
           <StyledLink smooth={true} to='about'>

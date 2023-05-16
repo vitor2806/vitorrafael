@@ -1,3 +1,4 @@
+import { Moon, Sun } from '@phosphor-icons/react';
 import { Container } from './styles';
 
 type ThemeSwitchProps = {
@@ -7,9 +8,12 @@ type ThemeSwitchProps = {
 
 export function ThemeSwitch({ theme, toggleTheme }: ThemeSwitchProps) {
   return (
-    <Container>
-      <input type='checkbox' id='switch' onChange={toggleTheme} />
-      <label htmlFor='switch'>Toggle</label>
+    <Container onClick={toggleTheme}>
+      {theme === 'light' ? (
+        <Sun size={16} weight='bold' />
+      ) : (
+        <Moon size={16} weight='bold' />
+      )}
     </Container>
   );
 }

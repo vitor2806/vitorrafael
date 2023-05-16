@@ -31,9 +31,23 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
+body, html {
 	line-height: 1;
 	background-color: ${({ theme }) => theme.colors.gray800};
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		background-color: ${({ theme }) => theme.colors.gray600};
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: ${({ theme }) => {
+      return theme.title === 'light'
+        ? theme.colors.purple700
+        : theme.colors.purple200;
+    }};
+	}
+	
 }
 ol, ul {
 	list-style: none;
