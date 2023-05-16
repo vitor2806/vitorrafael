@@ -8,7 +8,12 @@ type ThemeSwitchProps = {
 
 export function ThemeSwitch({ theme, toggleTheme }: ThemeSwitchProps) {
   return (
-    <Container onClick={toggleTheme}>
+    <Container
+      onClick={toggleTheme}
+      id='theme-toggle'
+      aria-label='Botão de tema'
+      title='Botão de tema'
+    >
       {theme === 'light' ? (
         <Sun size={16} weight='bold' />
       ) : (
