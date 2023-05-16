@@ -6,8 +6,6 @@ import { Container, Logo, Navigator, StyledLink, Wrapper } from './styles';
 export function Header() {
   const themeContext = useContext(ThemeContext);
 
-  console.log(themeContext);
-
   return (
     <Wrapper>
       <Container>
