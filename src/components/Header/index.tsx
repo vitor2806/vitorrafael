@@ -1,10 +1,22 @@
+import { List, X } from '@phosphor-icons/react';
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { Container, Logo, Navigator, StyledLink, Wrapper } from './styles';
+import {
+  CloseButton,
+  Container,
+  Logo,
+  MenuButton,
+  MobileNavigator,
+  Navigator,
+  StyledLink,
+  Wrapper,
+} from './styles';
 
 export function Header() {
   const themeContext = useContext(ThemeContext);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Wrapper>
@@ -16,6 +28,29 @@ export function Header() {
             <Image src='/logo_dark.svg' alt='Logo' fill />
           )}
         </Logo>
+
+        {isMenuOpen ? (
+          <MobileNavigator>
+            <StyledLink smooth={true} to='about'>
+              Sobre
+            </StyledLink>
+            <StyledLink smooth={true} offset={1} to='projects'>
+              Projetos
+            </StyledLink>
+            <StyledLink smooth={true} to='skills'>
+              Habilidades
+            </StyledLink>
+
+            <CloseButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <X size={24} weight='bold' />
+            </CloseButton>
+          </MobileNavigator>
+        ) : (
+          <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <List size={24} weight='bold' />
+          </MenuButton>
+        )}
+
         <Navigator>
           <StyledLink smooth={true} to='about'>
             Sobre

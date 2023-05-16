@@ -5,7 +5,9 @@ import {
   Body,
   Description,
   ImageContainer,
+  MobileSection,
   PersonalInfo,
+  Section,
   Subtitle,
   Title,
   Wrapper,
@@ -31,10 +33,12 @@ export function About() {
             />
           </ImageContainer>
           <Subtitle>Opa, tudo bem?</Subtitle>
+
           <Description>
             Como já sabe, eu me chamo <strong>Vitor</strong>.
           </Description>
-          <section>
+
+          <Section>
             <Body>
               <strong>Sou um desenvolvedor full-stack</strong> fascinado por
               tecnologia e apaixonado pelo que é possível alcançar através de
@@ -59,7 +63,21 @@ export function About() {
               <strong> desenvolver soluções eficientes</strong> para problemas
               atuais através do desenvolvimento de software.
             </Body>
-          </section>
+          </Section>
+
+          <MobileSection>
+            <Body>
+              “
+              <strong>
+                Desenvolvedor full-stack especializado em front-end
+              </strong>{' '}
+              com conhecimento em back-end e{' '}
+              <strong>APIs REST e GraphQL utilizando Typescript</strong>. Tenho
+              como objetivo procurar{' '}
+              <strong>soluções eficientes e criativas</strong>. Apaixonado por
+              tecnologia e pelo poder das linhas de código.”
+            </Body>
+          </MobileSection>
         </PersonalInfo>
       </GlobalInnerContainer>
     </Wrapper>

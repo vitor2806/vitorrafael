@@ -12,6 +12,12 @@ export const SectionTitle = styled.h2`
   letter-spacing: -0.5px;
 
   color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+    line-height: 72px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const GlobalWrapper = styled.div`
@@ -38,4 +44,13 @@ export const GlobalInnerContainer = styled.div<{
       : ''}
 
   ${({ $fillHeight }) => ($fillHeight ? 'min-height: 100vh;' : '')}
+  
+  @media (max-width: 1280px) {
+    max-width: 80%;
+    padding-bottom: 24px;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 304px;
+  }
 `;

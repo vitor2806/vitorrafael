@@ -14,10 +14,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled(GlobalInnerContainer)`
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
+  padding: 0;
 `;
 
 export const Logo = styled(Link)`
@@ -31,6 +32,67 @@ export const Navigator = styled.nav`
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileNavigator = styled.nav`
+  display: none;
+
+  @media (max-width: 768px) {
+    z-index: 30;
+    position: fixed;
+    inset: 0;
+
+    background-color: ${({ theme }) => theme.colors.gray700};
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+`;
+
+export const CloseButton = styled.button`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+`;
+
+export const MenuButton = styled.button`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export const StyledLink = styled(LinkScroll)<{ selected?: boolean }>`

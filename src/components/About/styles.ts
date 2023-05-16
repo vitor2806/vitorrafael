@@ -35,6 +35,11 @@ export const ImageContainer = styled.div`
 
   background: ${({ theme }) => theme.colors.white};
   border-radius: 16px;
+
+  @media (max-width: 768px) {
+    width: 256px;
+    height: 256px;
+  }
 `;
 
 export const Subtitle = styled.h3`
@@ -45,6 +50,11 @@ export const Subtitle = styled.h3`
   line-height: 58px;
 
   color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+    line-height: 48px;
+  }
 `;
 
 export const Description = styled.h5`
@@ -61,6 +71,31 @@ export const Description = styled.h5`
 
   > strong {
     color: ${({ theme }) => theme.colors.orange500};
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileSection = styled.section`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -80,5 +115,10 @@ export const Body = styled.p`
 
   > strong {
     color: ${({ theme }) => theme.colors.orange500};
+  }
+
+  @media (max-width: 768px) {
+    text-indent: 0;
+    text-align: center;
   }
 `;

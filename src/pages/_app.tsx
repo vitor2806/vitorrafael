@@ -1,4 +1,3 @@
-import { ThemeSwitch } from '@/components/ThemeSwitch';
 import { client } from '@/lib/apollo';
 import Reset from '@/styles/reset';
 import { darkTheme, lightTheme } from '@/styles/theme';
@@ -17,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ApolloProvider client={client}>
         <ThemeProvider theme={selectedTheme}>
-          <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
+          {/* <ThemeSwitch theme={theme} toggleTheme={toggleTheme} /> */}
           <Reset />
           <Analytics />
           <Component {...pageProps} />
