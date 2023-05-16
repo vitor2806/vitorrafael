@@ -27,9 +27,14 @@ export const ProjectsGrid = styled.div`
   grid-template-rows: repeat(2, 336px);
   gap: 16px;
 
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 304px);
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 336px);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 336px);
   }
 `;
 

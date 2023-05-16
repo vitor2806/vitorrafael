@@ -80,6 +80,7 @@ export const CloseButton = styled.button`
 
 export const MenuButton = styled.button`
   display: none;
+  color: ${({ theme }) => theme.colors.purple200};
 
   @media (max-width: 768px) {
     display: flex;

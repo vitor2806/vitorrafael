@@ -2,6 +2,7 @@ import { About } from '@/components/About';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
+import { Projects } from '@/components/Projects';
 import { GlobalWrapper } from '@/styles/defaults';
 import Head from 'next/head';
 import ScrollToTop from 'react-scroll-to-top';
@@ -28,7 +29,7 @@ export default function Home() {
         <Header />
         <Hero />
         <About />
-        {/* <Projects /> */}
+        <Projects />
         {/* <Skills /> */}
         <Footer />
         <ScrollToTop smooth width='16px' />

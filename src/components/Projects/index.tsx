@@ -6,8 +6,6 @@ import { ProjectsGrid, SeeMore, Title, Wrapper } from './styles';
 export function Projects() {
   const { data } = useGetProjectsQuery();
 
-  data?.projects[0];
-
   return (
     <Wrapper id='projects'>
       <GlobalInnerContainer $fillHeight={true}>
