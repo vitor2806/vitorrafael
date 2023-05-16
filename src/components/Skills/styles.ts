@@ -13,7 +13,7 @@ export const Title = styled(SectionTitle)`
   color: ${({ theme }) => theme.colors.purple500};
 
   > span {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.purple100};
   }
 `;
 

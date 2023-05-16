@@ -25,7 +25,7 @@ export const Text = styled.span`
 
   letter-spacing: 0.5px;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 
   > a {
     text-decoration: none;

@@ -40,7 +40,7 @@ export const ProjectTitle = styled.p`
 
   letter-spacing: 0.5px;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 `;
 
 export const ProjectDescription = styled.span`
@@ -55,5 +55,5 @@ export const ProjectDescription = styled.span`
   line-height: 21px;
   letter-spacing: 0.25px;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 `;

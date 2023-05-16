@@ -44,16 +44,16 @@ export const StyledLink = styled(LinkScroll)<{ selected?: boolean }>`
   letter-spacing: 1.25px;
   cursor: pointer;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple200};
 
   &:hover {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.purple500};
   }
 
-  ${({ selected }) =>
+  ${({ selected, theme }) =>
     selected &&
     `
-    color: ${({ theme }) => theme.colors.purple500};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.purple500};
+    color: ${theme.colors.purple500}
+    border-bottom: 2px solid ${theme.colors.purple500};
   `}
 `;

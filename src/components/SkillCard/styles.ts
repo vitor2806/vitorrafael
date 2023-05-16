@@ -28,7 +28,7 @@ export const TechName = styled.span`
 
   letter-spacing: 0.5px;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 `;
 
 export const TechIcon = styled.div`
@@ -37,7 +37,7 @@ export const TechIcon = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
 
   padding: 4px;
@@ -58,5 +58,5 @@ export const Description = styled.span`
   line-height: 24px;
   letter-spacing: 0.5px;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 `;

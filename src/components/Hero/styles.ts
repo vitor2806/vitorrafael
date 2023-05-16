@@ -20,11 +20,17 @@ export const HeroBigText = styled.h1`
 
   letter-spacing: -1.5px;
 
-  color: ${({ theme }) => theme.colors.purple500};
+  color: ${({ theme }) => {
+    if (theme.title === 'light') return '#000';
+    return theme.colors.purple500;
+  }};
 
   > strong {
     font-weight: 700;
-    color: #fff;
+    color: ${({ theme }) => {
+      if (theme.title === 'light') return theme.colors.purple500;
+      return theme.colors.white;
+    }};
   }
 `;
 
@@ -34,7 +40,7 @@ export const HeroSubtitle = styled.h3`
   font-weight: 500;
   font-size: 39px;
   line-height: 58px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.purple100};
 `;
 
 export const ContactContainer = styled.div`
