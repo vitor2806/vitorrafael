@@ -22,4 +22,13 @@ export const SkillsGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   column-gap: 28px;
   row-gap: 64px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+  }
+
+  @media (max-width: 475px) {
+    grid-template-columns: 1fr;
+  }
 `;

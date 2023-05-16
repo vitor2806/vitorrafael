@@ -10,6 +10,11 @@ export const Wrapper = styled.div`
 
   width: 296px;
   height: 120px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const TechInfo = styled.div`
@@ -59,4 +64,8 @@ export const Description = styled.span`
   letter-spacing: 0.5px;
 
   color: ${({ theme }) => theme.colors.purple100};
+
+  @media (max-width: 1024px) {
+    height: 100%;
+  }
 `;
