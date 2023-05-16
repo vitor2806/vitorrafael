@@ -16,4 +16,11 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.colors.purple200};
 
   cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.purple200};
+    color: ${({ theme }) => theme.colors.gray600};
+  }
 `;

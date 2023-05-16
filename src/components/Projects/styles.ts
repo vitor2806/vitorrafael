@@ -1,5 +1,6 @@
 import { SectionTitle } from '@/styles/defaults';
 import Link from 'next/link';
+import { darken } from 'polished';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -57,4 +58,14 @@ export const SeeMore = styled(Link)`
   letter-spacing: 1.25px;
 
   color: ${({ theme }) => theme.colors.white};
+
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: ${({ theme }) => darken(0.15, theme.colors.purple500)};
+  }
+
+  &:active {
+    background: ${({ theme }) => darken(0.25, theme.colors.purple500)};
+  }
 `;

@@ -76,4 +76,15 @@ export const DownloadCV = styled(Link)`
   letter-spacing: 0.25px;
 
   color: ${({ theme }) => theme.colors.purple500};
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.purple500};
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;

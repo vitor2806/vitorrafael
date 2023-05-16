@@ -1,3 +1,4 @@
+import { DownloadSimple } from '@phosphor-icons/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -59,13 +60,7 @@ export function Hero() {
             download='Vitor Rafael.pdf'
             target='_blank'
           >
-            <Image
-              src={'/assets/icons/DownloadSimple.svg'}
-              height={20}
-              width={20}
-              sizes='100px'
-              alt='Ícone de envolope'
-            />
+            <DownloadSimple size={20} weight='bold' />
             BAIXAR CV
           </DownloadCV>
         </ContactContainer>

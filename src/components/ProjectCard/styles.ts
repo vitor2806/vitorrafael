@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { lighten } from 'polished';
 import styled from 'styled-components';
 
 export const Wrapper = styled(Link)`
@@ -10,7 +11,11 @@ export const Wrapper = styled(Link)`
   transition: background 0.2s ease-in-out;
 
   &:hover {
-    background-color: #3e3a3f;
+    background-color: ${({ theme }) => lighten(0.1, theme.colors.gray600)};
+
+    box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.05);
+
+    z-index: 99;
   }
 `;
 
