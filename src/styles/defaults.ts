@@ -35,6 +35,7 @@ export const GlobalInnerContainer = styled.div<{
   flex-flow: column;
   width: 100%;
   max-width: 1040px;
+  padding-bottom: 24px;
 
   ${({ $centralized }) =>
     $centralized
@@ -44,13 +45,13 @@ export const GlobalInnerContainer = styled.div<{
       : ''}
 
   ${({ $fillHeight }) => ($fillHeight ? 'min-height: 100vh;' : '')}
-  
+
   @media (max-width: 1280px) {
-    max-width: 80%;
-    padding-bottom: 24px;
+    max-width: 85%;
   }
 
   @media (max-width: 320px) {
     max-width: 304px;
+    padding-bottom: 0;
   }
 `;

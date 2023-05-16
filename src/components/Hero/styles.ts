@@ -6,9 +6,16 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
-export const Container = styled(GlobalInnerContainer)``;
+export const Container = styled(GlobalInnerContainer)`
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    min-height: 90vh;
+  }
+`;
 
 export const HeroBigText = styled.h1`
   font-family: 'Poppins';
@@ -19,6 +26,8 @@ export const HeroBigText = styled.h1`
   /* identical to box height */
 
   letter-spacing: -1.5px;
+
+  text-align: center;
 
   color: ${({ theme }) => {
     if (theme.title === 'light') return '#000';
@@ -32,15 +41,61 @@ export const HeroBigText = styled.h1`
       return theme.colors.white;
     }};
   }
+
+  @media (max-width: 904px) {
+    display: none;
+  }
+`;
+
+export const HeroBigTextMobile = styled.h1`
+  display: none;
+
+  @media (max-width: 904px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 72px;
+    /* identical to box height */
+
+    letter-spacing: -1.5px;
+
+    color: ${({ theme }) => {
+      if (theme.title === 'light') return '#000';
+      return theme.colors.purple500;
+    }};
+
+    strong {
+      font-weight: 600;
+      color: ${({ theme }) => {
+        if (theme.title === 'light') return theme.colors.purple500;
+        return theme.colors.white;
+      }};
+    }
+  }
+
+  @media (min-width: 600px) {
+    font-size: 58px;
+    line-height: 87px;
+  }
 `;
 
 export const HeroSubtitle = styled.h3`
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 39px;
   line-height: 58px;
   color: ${({ theme }) => theme.colors.purple100};
+
+  @media (max-width: 904px) {
+    font-size: 20px;
+    line-height: 30px;
+  }
 `;
 
 export const ContactContainer = styled.div`
@@ -50,6 +105,17 @@ export const ContactContainer = styled.div`
   justify-content: center;
   gap: 24px;
   margin-top: 16px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+export const Contact = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 `;
 
 export const DownloadCV = styled(Link)`
