@@ -17,7 +17,7 @@ export const lightTheme = {
   title: 'light',
   colors: {
     gray800: '#D7CDE4',
-    gray700: '#E5E3E8',
+    gray700: '#f2eef6',
     gray600: '#FFFFFF',
     purple700: '#453663',
     purple500: '#845CD6',

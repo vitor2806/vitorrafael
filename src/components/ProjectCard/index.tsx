@@ -21,7 +21,7 @@ export function ProjectCard({
   href,
 }: ProjectCardProps) {
   return (
-    <Wrapper href={href}>
+    <Wrapper href={href} rel='noreferrer' target='_blank'>
       <ImageContainer>
         <Image
           src={image}

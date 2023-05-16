@@ -11,7 +11,7 @@ const useThemes = () => {
   useEffect(() => {
     const userThemeIsDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    if (userThemeIsDark) {
+    if (userThemeIsDark.matches) {
       setTheme(themes.DARK);
     }
   }, []);

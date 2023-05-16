@@ -8,7 +8,7 @@ type ThemeSwitchProps = {
 export function ThemeSwitch({ theme, toggleTheme }: ThemeSwitchProps) {
   return (
     <Container>
-      <input type='checkbox' id='switch' />
+      <input type='checkbox' id='switch' onChange={toggleTheme} />
       <label htmlFor='switch'>Toggle</label>
     </Container>
   );

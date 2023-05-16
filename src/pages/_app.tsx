@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ApolloProvider client={client}>
         <ThemeProvider theme={selectedTheme}>
+          {/* <ThemeSwitch theme={theme} toggleTheme={toggleTheme} /> */}
           <Reset />
           <Analytics />
           <Component {...pageProps} />
