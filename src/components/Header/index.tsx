@@ -41,12 +41,20 @@ export function Header() {
               Habilidades
             </StyledLink>
 
-            <CloseButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <CloseButton
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              id='close-menu'
+              title='Fechar menu'
+            >
               <X size={24} weight='bold' />
             </CloseButton>
           </MobileNavigator>
         ) : (
-          <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <MenuButton
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            id='open-menu'
+            title='Abrir menu'
+          >
             <List size={24} weight='bold' />
           </MenuButton>
         )}

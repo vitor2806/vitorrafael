@@ -29,7 +29,7 @@ export function About() {
               src={data?.profilePics[0].image?.url || ''}
               alt='Foto de perfil'
               fill
-              sizes='1000px'
+              sizes='300px'
             />
           </ImageContainer>
           <Subtitle>Opa, tudo bem?</Subtitle>
