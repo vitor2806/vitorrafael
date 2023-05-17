@@ -23,7 +23,7 @@ export const Title = styled(SectionTitle)`
 
 export const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 304px);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 336px);
   gap: 16px;
 
