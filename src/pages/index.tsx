@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Projects } from '@/components/Projects';
+import { Skills } from '@/components/Skills';
 import { GlobalWrapper } from '@/styles/defaults';
 import Head from 'next/head';
 import ScrollToTop from 'react-scroll-to-top';
@@ -30,9 +31,16 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        {/* <Skills /> */}
+        <Skills />
         <Footer />
-        <ScrollToTop smooth width='16px' />
+        <ScrollToTop
+          smooth
+          width='16px'
+          style={{
+            bottom: '10px',
+            right: '10px',
+          }}
+        />
       </GlobalWrapper>
     </>
   );

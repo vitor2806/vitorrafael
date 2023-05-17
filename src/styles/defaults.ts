@@ -52,6 +52,5 @@ export const GlobalInnerContainer = styled.div<{
 
   @media (max-width: 320px) {
     max-width: 304px;
-    padding-bottom: 0;
   }
 `;

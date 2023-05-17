@@ -23,4 +23,9 @@ export const Container = styled.button`
     background-color: ${({ theme }) => theme.colors.purple200};
     color: ${({ theme }) => theme.colors.gray600};
   }
+
+  @media (max-width: 1024px) {
+    top: 88px;
+    right: 16px;
+  }
 `;

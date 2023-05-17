@@ -59,6 +59,8 @@ export const MobileNavigator = styled.nav`
 export const CloseButton = styled.button`
   display: none;
 
+  color: ${({ theme }) => theme.colors.purple200};
+
   @media (max-width: 768px) {
     display: flex;
     align-items: center;

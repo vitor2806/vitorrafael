@@ -13,6 +13,14 @@ export const Wrapper = styled.div`
 export const Container = styled(GlobalInnerContainer)`
   flex-direction: row;
   justify-content: space-between;
+
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Text = styled.span`
@@ -30,5 +38,9 @@ export const Text = styled.span`
   > a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.purple500};
+  }
+
+  @media (max-width: 1024px) {
+    text-align: center;
   }
 `;
