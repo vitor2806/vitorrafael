@@ -37,6 +37,7 @@ export function Hero() {
               width={40}
               sizes='100px'
               alt='Ícone de envolope'
+              title='rqfvitor@gmail.com'
             />
 
             <Link
